@@ -1,5 +1,4 @@
 
-
 import java.util.Scanner;
 
 public class Exam1 {
@@ -32,8 +31,8 @@ public class Exam1 {
         if (!a.matches("\"[a-zA-Z0-9]{1,10}\"")) {
             throw new Exception("Некорректный формат строки a.");
         }
-        if (!b.matches("[\"a-zA-Z0-9]{1,10}\"|[1-9]|10")) {
-            throw new Exception("Некорректный формат строки b или числа.");
+        if (!b.matches("\"[a-zA-Z0-9]{1,10}\"")) {
+            throw new Exception("Некорректный формат строки b.");
         }
         if (!operation.matches("[+\\-/]")) {
             throw new Exception("Некорректный формат операции.");
@@ -46,7 +45,7 @@ public class Exam1 {
         try {
             multiplier = Integer.parseInt(b);
             divider = Integer.parseInt(b);
-            if (multiplier < 1 || multiplier > 10 || divider < 1 || divider > 10) {
+            if (multiplier < 1  || multiplier > 10  || divider < 1 || divider > 10) {
                 throw new Exception("Число должно быть в диапазоне от 1 до 10.");
             }
         } catch (NumberFormatException e) {
@@ -86,3 +85,4 @@ public class Exam1 {
         return result;
     }
 }
+
