@@ -31,7 +31,7 @@ public class Exam1 {
         if (!a.matches("\"[a-zA-Z0-9]{1,10}\"")) {
             throw new Exception("Некорректный формат строки a.");
         }
-        if (!b.matches("\"[a-zA-Z0-9]{1,10}\"")) {
+        if (!b.matches("[\"a-zA-Z0-9]{1,10}\"")) {
             throw new Exception("Некорректный формат строки b.");
         }
         if (!operation.matches("[+\\-/]")) {
@@ -41,15 +41,20 @@ public class Exam1 {
         a = a.substring(1, a.length() - 1); // Удаление кавычек из строки a
         b = b.substring(1, b.length() - 1); // Удаление кавычек из строки b
 
-        int multiplier, divider;
+        int multiplier = 1; // Инициализация multiplier
+        int divider = 1; // Инициализация divider
         try {
             multiplier = Integer.parseInt(b);
             divider = Integer.parseInt(b);
-            if (multiplier < 1  || multiplier > 10  || divider < 1 || divider > 10) {
+            // Проверка диапазона чисел
+            if (multiplier < 1 || multiplier > 10 || divider < 1 || divider > 10) {
                 throw new Exception("Число должно быть в диапазоне от 1 до 10.");
             }
         } catch (NumberFormatException e) {
-            throw new Exception("Некорректный формат числа.");
+            // Если строка b не является числом, проверяем ее длину
+            if (b.length() > 10) {
+                throw new Exception("Строка b должна быть не длиннее 10 символов.");
+            }
         }
 
         String result = "";
@@ -69,7 +74,7 @@ public class Exam1 {
                 break;
             case "/":
                 if (divider > 0 && divider <= a.length()) {
-                    result = a.substring(0, divider);
+                    result = a.substring( 0, divider);
                 } else {
                     throw new Exception("Некорректный формат делителя.");
                 }
@@ -85,4 +90,5 @@ public class Exam1 {
         return result;
     }
 }
+
 
