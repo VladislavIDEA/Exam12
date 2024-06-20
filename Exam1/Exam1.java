@@ -1,11 +1,10 @@
-
 import java.util.Scanner;
 
 public class Exam1 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите выражение (например, \"Hello\" + \"World\", \"Hello\"  3): ");
+        System.out.print("Введите выражение (например, \"Hello\" + \"World\", \"Hello\"  , 200 + 300): ");
         String expression = scanner.nextLine();
 
         try {
@@ -41,8 +40,8 @@ public class Exam1 {
         a = a.substring(1, a.length() - 1); // Удаление кавычек из строки a
         b = b.substring(1, b.length() - 1); // Удаление кавычек из строки b
 
-        int multiplier = 1; // Инициализация multiplier
-        int divider = 1; // Инициализация divider
+        int multiplier = 1;// Инициализация
+        int divider = 1;// Инициализация
         try {
             multiplier = Integer.parseInt(b);
             divider = Integer.parseInt(b);
@@ -60,7 +59,7 @@ public class Exam1 {
         String result = "";
         switch (operation) {
             case "+":
-                result = a + b;
+                result = a + b; // Сложение строк
                 break;
             case "-":
                 if (a.contains(b)) {
@@ -70,11 +69,11 @@ public class Exam1 {
                 }
                 break;
             case "":
-                result = a.repeat(multiplier);
+                result = a.repeat(multiplier); // Умножение строки на число
                 break;
             case "/":
                 if (divider > 0 && divider <= a.length()) {
-                    result = a.substring( 0, divider);
+                    result = a.substring(0, divider);
                 } else {
                     throw new Exception("Некорректный формат делителя.");
                 }
@@ -90,5 +89,6 @@ public class Exam1 {
         return result;
     }
 }
+
 
 
